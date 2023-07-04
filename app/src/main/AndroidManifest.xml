@@ -13,13 +13,21 @@
         android:theme="@style/Theme.JSWForms"
         tools:targetApi="31">
         <activity
+            android:name=".Login_Screen"
+            android:exported="false" />
+        <activity
+            android:name=".JSW_Splash_Screen"
+            android:exported="true"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

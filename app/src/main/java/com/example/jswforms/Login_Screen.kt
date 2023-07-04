@@ -1,15 +1,11 @@
 package com.example.jswforms
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import java.util.logging.Handler
 
-class MainActivity : AppCompatActivity() {
+class Login_Screen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
+        setContentView(R.layout.activity_login_screen)
     }
 }
