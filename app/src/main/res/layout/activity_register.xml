@@ -14,10 +14,10 @@
 
         <ImageView
             android:id="@+id/ivBackbtn"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/baseline_arrow_back_24"/>
 
 
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:padding="5dp"
             android:layout_toRightOf="@id/ivBackbtn"
@@ -48,7 +48,7 @@
             android:layout_height="300dp"
             android:layout_below="@id/viewPartition"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/register" />
@@ -59,7 +59,7 @@
             android:layout_height="48dp"
             android:layout_below="@id/animation_view"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/dark_border"
             android:drawableLeft="@drawable/baseline_email_24"
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/EtConfirmPassword"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/register_button_bg"
             android:padding="5dp"
@@ -118,8 +118,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/orPartision"
             android:layout_below="@id/btnRegister"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dp">
 
             <View
                 android:layout_width="wrap_content"
@@ -143,13 +144,32 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="OR"
+                android:textSize="8sp"
                 android:textColor="@color/Dark_shrine_Pink" />
 
         </RelativeLayout>
         
-        <ImageButton
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+        <ImageView
+            android:id="@+id/RegisterWithGoogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/google_color_svgrepo_com"
+            android:layout_below="@id/orPartision"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already Registered? Login"
+            android:id="@+id/LoginRegister"
+            android:textColor="@color/Dark_shrine_Pink"
+            android:textSize="12sp"
+            android:layout_below="@id/RegisterWithGoogle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
 
     </RelativeLayout>
 
