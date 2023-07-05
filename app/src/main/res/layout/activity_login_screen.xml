@@ -4,10 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/Lite_Secondary_Shrine_Pink_100"
+    android:screenOrientation="portrait"
     tools:context=".Login_Screen">
     
     <RelativeLayout
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/TitleTvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:padding="5dp"
+            android:text="Login"
+            android:textColor="@color/Dark_shrine_Pink"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/viewPartition"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/TitleTvLogin"
+            android:layout_marginTop="10dp"
+            android:background="@color/Primary_Shrine_Pink_900" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_below="@id/viewPartition"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/login" />
+
+        <EditText
+            android:id="@+id/EtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/animation_view"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/dark_border"
+            android:drawableLeft="@drawable/baseline_email_24"
+            android:drawablePadding="10dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/Dark_shrine_Pink"
+            android:padding="10dp"
+            android:textColorHint="@color/Dark_shrine_Pink" />
+
+        <EditText
+            android:id="@+id/EtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/EtEmail"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/Dark_shrine_Pink"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/dark_border"
+            android:drawableLeft="@drawable/baseline_lock_24"
+            android:drawablePadding="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColorHint="@color/Dark_shrine_Pink" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/EtPassword"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/register_button_bg"
+            android:padding="5dp"
+            android:text="Login"
+            android:textColor="@color/Lite_Secondary_Shrine_Pink_100" />
+
+<TextView
+    android:id="@+id/TvLoginForgotpassword"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Forgot password?"
+    android:textSize="12sp"
+    android:textColor="@color/Dark_shrine_Pink"
+    android:layout_below="@id/btnLogin"
+    android:layout_alignParentRight="true"
+    android:layout_marginEnd="20dp"
+    android:layout_marginTop="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/orPartisionLogin"
+        android:layout_below="@id/TvLoginForgotpassword"
+        android:layout_marginTop="20dp">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_toStartOf="@+id/orText"
+            android:background="@color/Primary_Shrine_Pink_900" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/orText"
+            android:background="@color/Primary_Shrine_Pink_900" />
+
+        <TextView
+            android:id="@+id/orText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="8sp"
+            android:text="OR"
+            android:textColor="@color/Dark_shrine_Pink" />
+
+    </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/RegisterWithGoogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/google_color_svgrepo_com"
+            android:layout_below="@id/orPartisionLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New User? Register"
+            android:id="@+id/LoginRegister"
+            android:textColor="@color/Dark_shrine_Pink"
+            android:textSize="12sp"
+            android:layout_below="@id/RegisterWithGoogle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+
+
+    </RelativeLayout>
 
 </LinearLayout>
