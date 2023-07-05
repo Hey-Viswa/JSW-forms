@@ -28,25 +28,9 @@ class JSW_Splash_Screen : AppCompatActivity() {
             startActivity(intent)
             finish()
         }, 4000)
-        animateBreathing()
+
 
     }
 
-    public fun animateBreathing() {
-        val scaleDown = ObjectAnimator.ofFloat(JswSplash, "scaleX", 1.0f, 0.9f)
-        scaleDown.duration = 2000
-        scaleDown.repeatCount = 1000
-        scaleDown.repeatMode = ValueAnimator.REVERSE
 
-        val scaleUp = ObjectAnimator.ofFloat(JswSplash, "scaleY", 1.0f, 0.9f)
-        scaleDown.duration = 2000
-        scaleDown.repeatCount = 1000
-        scaleDown.repeatMode = ValueAnimator.REVERSE
-
-        val animatorSet = AnimatorSet()
-        animatorSet.playTogether(scaleDown, scaleUp)
-        animatorSet.interpolator = AccelerateDecelerateInterpolator()
-        animatorSet.start()
-
-    }
 }

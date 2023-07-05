@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579419525148",
+    "project_id": "vast-pad-364916",
+    "storage_bucket": "vast-pad-364916.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579419525148:android:c33902c935870bb2860fd9",
+        "android_client_info": {
+          "package_name": "com.example.jswforms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579419525148-e075ls2vb2bv75jmskr6ea30m35qujft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrFFZZH4aUyGfCQBFs3MgBCVEgU3RfBJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579419525148-e075ls2vb2bv75jmskr6ea30m35qujft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
