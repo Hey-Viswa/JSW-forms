@@ -8,7 +8,7 @@
             android:color="@color/Dark_shrine_Pink"
             android:width="2dp"/>
     <solid
-        android:color="@color/Dark_shrine_Pink"/>
+        android:color="@color/Primary_Shrine_Pink_900"/>
 
 
 </shape>
