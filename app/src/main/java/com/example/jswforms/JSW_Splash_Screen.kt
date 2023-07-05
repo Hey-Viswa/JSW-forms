@@ -27,7 +27,7 @@ class JSW_Splash_Screen : AppCompatActivity() {
             val intent = Intent(this@JSW_Splash_Screen, Register_Activity::class.java)
             startActivity(intent)
             finish()
-        }, 4000)
+        }, 2000)
 
 
     }
