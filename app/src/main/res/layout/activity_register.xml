@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
     android:background="@color/Lite_Secondary_Shrine_Pink_100"
     tools:context=".Register_Activity">
 
@@ -13,7 +15,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/ivBackbtn"
+            android:id="@+id/ivRegBackbtn"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginStart="20dp"
@@ -29,7 +31,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:padding="5dp"
-            android:layout_toRightOf="@id/ivBackbtn"
+            android:layout_toRightOf="@id/ivRegBackbtn"
             android:text="Register Yourself"
             android:textColor="@color/Dark_shrine_Pink"
             android:textSize="20sp" />
@@ -54,12 +56,13 @@
             app:lottie_rawRes="@raw/register" />
 
         <EditText
-            android:id="@+id/EtEmail"
+            android:id="@+id/EtRegEmail"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_below="@id/animation_view"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
+            android:textColor="@color/Dark_shrine_Pink"
             android:layout_marginEnd="20dp"
             android:background="@drawable/dark_border"
             android:drawableLeft="@drawable/baseline_email_24"
@@ -70,26 +73,27 @@
             android:textColorHint="@color/Dark_shrine_Pink" />
 
         <EditText
-            android:id="@+id/EtPassword"
+            android:id="@+id/EtRegPassword"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_below="@id/EtEmail"
+            android:layout_below="@id/EtRegEmail"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/dark_border"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:drawablePadding="10dp"
+            android:textColor="@color/Dark_shrine_Pink"
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="10dp"
             android:textColorHint="@color/Dark_shrine_Pink" />
 
         <EditText
-            android:id="@+id/EtConfirmPassword"
+            android:id="@+id/EtRegConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_below="@id/EtPassword"
+            android:layout_below="@id/EtRegPassword"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
@@ -97,6 +101,7 @@
             android:drawableLeft="@drawable/baseline_password_24"
             android:drawablePadding="10dp"
             android:hint="Confirm Password"
+            android:textColor="@color/Dark_shrine_Pink"
             android:inputType="textPassword"
             android:padding="10dp"
             android:textColorHint="@color/Dark_shrine_Pink" />
@@ -105,7 +110,7 @@
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/EtConfirmPassword"
+            android:layout_below="@id/EtRegConfirmPassword"
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="20dp"

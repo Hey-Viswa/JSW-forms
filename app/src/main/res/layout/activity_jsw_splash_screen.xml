@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
+    android:screenOrientation="portrait"
     android:orientation="vertical"
     tools:context=".JSW_Splash_Screen">
 
@@ -12,6 +13,6 @@
         android:id="@+id/ivJswLogoSplash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/forms" />
+        android:src="@drawable/restlogopg" />
 
 </LinearLayout>
