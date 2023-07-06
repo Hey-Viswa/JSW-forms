@@ -23,16 +23,22 @@ class Login_Screen : AppCompatActivity() {
             val email = binding.EtEmail.text.toString()
             val password = binding.EtPassword.text.toString()
 
-            if(email.isNotEmpty() && password.isNotEmpty()){
-                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
-                 if (it.isSuccessful){
-                     val intent = Intent(this,MainActivity::class.java)
-                     startActivity(intent)
-                 } else {
-
-                 }
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    }
                 }
+            } else {
+                Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
+        }
+        binding.LoginRegister.setOnClickListener {
+            val signupIntent = Intent(this,Register_Activity::class.java)
+            startActivity(signupIntent)
         }
     }
 }
