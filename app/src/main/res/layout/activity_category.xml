@@ -74,7 +74,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Official Survey Form"
+                        android:text="Formal Survey Form"
                         android:textColor="@color/Dark_shrine_Pink"
                         android:textStyle="bold|normal"
                         android:layout_below="@id/officialbgiv"

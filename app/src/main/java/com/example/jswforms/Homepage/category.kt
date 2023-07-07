@@ -36,7 +36,7 @@ class category : AppCompatActivity() {
 
         OfficialCategory.setOnClickListener {
             val url =
-                "https://docs.google.com/forms/d/1XPKuhm3gPLIyOK5x7tfKMbhlz8JZTjzTWTmZRhXaMCk/edit"
+                "https://docs.google.com/forms/d/1-vuGC4Xwoi6Jc8NfubdGzVcbCmt21daGgrabqKFT1e8/edit"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             startActivity(intent)
         }
