@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:screenOrientation="portrait"
     android:background="@color/Lite_Secondary_Shrine_Pink_100"
-    tools:context=".Register_Activity">
+    tools:context=".Login_and_Register_Activity.Register_Activity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
             android:background="@drawable/dark_border"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:drawablePadding="10dp"
-            android:drawableRight="@drawable/baseline_visibility_off_24"
+
             android:textColor="@color/Dark_shrine_Pink"
             android:hint="Password"
             android:inputType="textPassword"
@@ -95,7 +95,6 @@
             android:id="@+id/EtRegConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:drawableRight="@drawable/baseline_visibility_off_24"
             android:layout_below="@id/EtRegPassword"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
@@ -158,7 +157,7 @@
 
         </RelativeLayout>
         
-        <ImageView
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/RegisterWithGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

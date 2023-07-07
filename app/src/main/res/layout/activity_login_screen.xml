@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/Lite_Secondary_Shrine_Pink_100"
     android:screenOrientation="portrait"
-    tools:context=".Login_Screen">
+    tools:context=".Login_and_Register_Activity.Login_Screen">
     
     <RelativeLayout
         android:layout_width="match_parent"
@@ -141,8 +141,8 @@
 
     </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/RegisterWithGoogle"
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/LoginWithGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/google_color_svgrepo_com"
@@ -159,7 +159,7 @@
             android:id="@+id/LoginRegister"
             android:textColor="@color/Dark_shrine_Pink"
             android:textSize="12sp"
-            android:layout_below="@id/RegisterWithGoogle"
+            android:layout_below="@id/LoginWithGoogle"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"/>
 

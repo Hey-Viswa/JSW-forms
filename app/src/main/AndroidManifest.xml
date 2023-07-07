@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,13 +16,16 @@
         android:theme="@style/colorPrimary"
         tools:targetApi="31">
         <activity
-            android:name=".Register_Activity"
+            android:name=".Homepage.category"
             android:exported="false" />
         <activity
-            android:name=".Login_Screen"
+            android:name=".Login_and_Register_Activity.Register_Activity"
             android:exported="false" />
         <activity
-            android:name=".JSW_Splash_Screen"
+            android:name=".Login_and_Register_Activity.Login_Screen"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity.JSW_Splash_Screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +34,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:name=".MainActivity.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

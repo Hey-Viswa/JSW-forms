@@ -1,9 +1,8 @@
-package com.example.jswforms
+package com.example.jswforms.MainActivity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import java.util.logging.Handler
+import com.example.jswforms.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

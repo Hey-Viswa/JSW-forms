@@ -1,14 +1,12 @@
-package com.example.jswforms
+package com.example.jswforms.SplashActivity
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
+import com.example.jswforms.Login_and_Register_Activity.Login_Screen
+import com.example.jswforms.R
 
 @Suppress("DEPRECATION")
 class JSW_Splash_Screen : AppCompatActivity() {

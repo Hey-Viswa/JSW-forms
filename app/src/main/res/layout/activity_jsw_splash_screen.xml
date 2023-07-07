@@ -7,7 +7,7 @@
     android:background="#ffffff"
     android:screenOrientation="portrait"
     android:orientation="vertical"
-    tools:context=".JSW_Splash_Screen">
+    tools:context=".SplashActivity.JSW_Splash_Screen">
 
     <ImageView
         android:id="@+id/ivJswLogoSplash"
