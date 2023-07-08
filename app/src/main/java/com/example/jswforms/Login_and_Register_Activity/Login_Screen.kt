@@ -150,7 +150,7 @@ class Login_Screen : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(account.idToken,null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
             if(it.isSuccessful){
-                val intent : Intent = Intent(this@Login_Screen,category::class.java )
+                val intent : Intent = Intent(this@Login_Screen,category::class.java)
             }else{
                 Toast.makeText(this,it.exception.toString(),Toast.LENGTH_SHORT).show()
             }

@@ -20,6 +20,7 @@ class category : AppCompatActivity() {
     private lateinit var VendorCategory: CardView
     private lateinit var LogoutibBtn: ImageView
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +29,17 @@ class category : AppCompatActivity() {
         OfficialCategory = findViewById(R.id.Officialcat)
         JobApplication = findViewById(R.id.catJobApplication)
         EventCategory = findViewById(R.id.Eventcat)
-
         CostumerCategory = findViewById(R.id.clientcat)
         VendorCategory = findViewById(R.id.vendorcat)
+        firebaseAuth = FirebaseAuth.getInstance()
+        LogoutibBtn = findViewById(R.id.LogoutibBtn)
 
+
+        LogoutibBtn.setOnClickListener {
+          firebaseAuth.signOut()
+            startActivity(Intent(this@category,Login_Screen::class.java))
+
+        }
 
         OfficialCategory.setOnClickListener {
             val url =
