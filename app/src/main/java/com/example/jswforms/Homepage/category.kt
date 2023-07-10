@@ -33,12 +33,13 @@ class category : AppCompatActivity() {
         VendorCategory = findViewById(R.id.vendorcat)
         firebaseAuth = FirebaseAuth.getInstance()
         LogoutibBtn = findViewById(R.id.LogoutibBtn)
-
+        sharedPreferences = getSharedPreferences("login_prefs", MODE_PRIVATE)
 
         LogoutibBtn.setOnClickListener {
-          firebaseAuth.signOut()
-            startActivity(Intent(this@category,Login_Screen::class.java))
-
+            firebaseAuth.signOut()
+            saveLoginStatus(false)
+            startActivity(Intent(this@category, Login_Screen::class.java))
+            finish()
         }
 
         OfficialCategory.setOnClickListener {
@@ -49,7 +50,7 @@ class category : AppCompatActivity() {
         }
         JobApplication.setOnClickListener {
             val url =
-               "https://docs.google.com/forms/d/e/1FAIpQLSfI5uohnvJG5OeyhYYaHRt5SxMsQSDWrPl2F0-SrgiaafKtNg/viewform"
+                "https://docs.google.com/forms/d/e/1FAIpQLSfI5uohnvJG5OeyhYYaHRt5SxMsQSDWrPl2F0-SrgiaafKtNg/viewform"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             startActivity(intent)
         }
@@ -74,5 +75,9 @@ class category : AppCompatActivity() {
 
     }
 
-
+    private fun saveLoginStatus(isLoggedIn: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("is_logged_in", isLoggedIn)
+        editor.apply()
+    }
 }

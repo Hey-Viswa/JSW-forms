@@ -3,6 +3,7 @@ package com.example.jswforms.Login_and_Register_Activity
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -13,7 +14,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jswforms.Homepage.category
-
 import com.example.jswforms.MainActivity.MainActivity
 import com.example.jswforms.R
 import com.example.jswforms.databinding.ActivityLoginScreenBinding
@@ -26,32 +26,20 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
-
 class Login_Screen : AppCompatActivity() {
 
-
-    lateinit var password : EditText
-    lateinit var LoginWithGoogle : SignInButton
-
-    var passwordVisible: Boolean = false
-    private lateinit var binding : ActivityLoginScreenBinding
+    private lateinit var password: EditText
+    private lateinit var LoginWithGoogle: SignInButton
+    private lateinit var binding: ActivityLoginScreenBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-
-    // Configure sign-in to request the user's ID, email address, and basic
-    // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-
-
-    // Build a GoogleSignInClient with the options specified by gso.
-    // Build a GoogleSignInClient with the options specified by gso.
-
-
+    private lateinit var sharedPreferences: SharedPreferences
+    var passwordVisible: Boolean = false
+    private val IS_LOGGED_IN = "is_logged_in"
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
 
         binding = ActivityLoginScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -59,16 +47,21 @@ class Login_Screen : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         password = findViewById(R.id.EtPassword)
         LoginWithGoogle = findViewById(R.id.LoginWithGoogle)
-        firebaseAuth = FirebaseAuth.getInstance()
+        sharedPreferences = getSharedPreferences("login_prefs", MODE_PRIVATE)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
-        googleSignInClient = GoogleSignIn.getClient(this,gso)
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        LoginWithGoogle.setOnClickListener{
+        if (isUserLoggedIn()) {
+            // User is already logged in, proceed to the main activity
+            startMainActivity()
+        }
+
+        LoginWithGoogle.setOnClickListener {
             signInGoogle()
         }
 
@@ -79,8 +72,8 @@ class Login_Screen : AppCompatActivity() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intent = Intent(this, category::class.java)
-                        startActivity(intent)
+                        saveLoginStatus(true)
+                        startMainActivity()
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
@@ -89,6 +82,7 @@ class Login_Screen : AppCompatActivity() {
                 Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
             }
         }
+
         binding.LoginRegister.setOnClickListener {
             val signupIntent = Intent(this, Register_Activity::class.java)
             startActivity(signupIntent)
@@ -116,44 +110,45 @@ class Login_Screen : AppCompatActivity() {
             }
             return@setOnTouchListener false
         }
-
-
-
-
-
     }
-    private fun signInGoogle(){
+
+    private fun signInGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         launcher.launch(signInIntent)
     }
 
-    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-        result ->
-        if(result.resultCode == Activity.RESULT_OK){
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             handleResult(task)
         }
     }
 
     private fun handleResult(task: Task<GoogleSignInAccount>) {
-       if (task.isSuccessful){
-           val account : GoogleSignInAccount? = task.result
-           if (account != null){
-               updateUi(account)
-           }
-       }else{
-           Toast.makeText(this,task.exception.toString(),Toast.LENGTH_SHORT).show()
-       }
+        if (task.isSuccessful) {
+            val account: GoogleSignInAccount? = task.result
+            if (account != null) {
+                saveLoginStatus(true)
+                startMainActivity()
+            }
+        } else {
+            Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 
-    private fun updateUi(account: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(account.idToken,null)
-        firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
-            if(it.isSuccessful){
-                val intent : Intent = Intent(this@Login_Screen,category::class.java)
-            }else{
-                Toast.makeText(this,it.exception.toString(),Toast.LENGTH_SHORT).show()
-            }
-        }
+    private fun startMainActivity() {
+        val intent: Intent = Intent(this, category::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun saveLoginStatus(isLoggedIn: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean(IS_LOGGED_IN, isLoggedIn)
+        editor.apply()
+    }
+
+    private fun isUserLoggedIn(): Boolean {
+        return sharedPreferences.getBoolean(IS_LOGGED_IN, false)
     }
 }
