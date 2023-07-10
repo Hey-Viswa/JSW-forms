@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +22,18 @@ class category : AppCompatActivity() {
     private lateinit var LogoutibBtn: ImageView
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var userEmail: String
+    private lateinit var btnsharelinkofficial : Button
+    private lateinit var btnsharelinkjob : Button
+    private lateinit var btnsharelinkevent : Button
+    private lateinit var btnsharelinkcostumer : Button
+    private lateinit var btnsharelinkvendor : Button
 
+    private val urlOfficial = "https://docs.google.com/forms/d/e/1FAIpQLSfRdx856GNoLnL8yoMOqdszFEhZmFM4cbWHorowzWuk5IZPGg/viewform"
+    private val urlJob = "https://docs.google.com/forms/d/e/1FAIpQLSfI5uohnvJG5OeyhYYaHRt5SxMsQSDWrPl2F0-SrgiaafKtNg/viewform"
+    private val urlEvent = "https://docs.google.com/forms/d/e/1FAIpQLSczGErrq6po4tOf7qkqlTR8H4QNjFasD1MkZAE_yfCNL98xRg/viewform"
+    private val urlCustomer = "https://docs.google.com/forms/d/e/1FAIpQLSeVQQXAV4kdSwdzoOFWbCGzADXNHn3HbmdPGtuV_oGqplF2GQ/viewform"
+    private val urlVendor = "https://docs.google.com/forms/d/e/1FAIpQLSf5kMXYbU64hJWDDKxT-Br4G-jzdt4D6_F95xsWvgn-ULXpzg/viewform"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +47,41 @@ class category : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         LogoutibBtn = findViewById(R.id.LogoutibBtn)
         sharedPreferences = getSharedPreferences("login_prefs", MODE_PRIVATE)
+        userEmail = firebaseAuth.currentUser?.email ?: ""
+        btnsharelinkofficial = findViewById(R.id.btnsharelinkofficial)
+        btnsharelinkjob = findViewById(R.id.btnsharelinkjob)
+        btnsharelinkevent = findViewById(R.id.btnsharelinkevent)
+        btnsharelinkcostumer = findViewById(R.id.btnsharelinkcostumer)
+        btnsharelinkvendor = findViewById(R.id.btnsharelinkvendor)
+
+
+
+        btnsharelinkofficial = findViewById(R.id.btnsharelinkofficial)
+        btnsharelinkjob = findViewById(R.id.btnsharelinkjob)
+        btnsharelinkevent = findViewById(R.id.btnsharelinkevent)
+        btnsharelinkcostumer = findViewById(R.id.btnsharelinkcostumer)
+        btnsharelinkvendor = findViewById(R.id.btnsharelinkvendor)
+
+        btnsharelinkofficial.setOnClickListener {
+            shareURL(urlOfficial)
+        }
+
+        btnsharelinkjob.setOnClickListener {
+            shareURL(urlJob)
+        }
+
+        btnsharelinkevent.setOnClickListener {
+            shareURL(urlEvent)
+        }
+
+        btnsharelinkcostumer.setOnClickListener {
+            shareURL(urlCustomer)
+        }
+
+        btnsharelinkvendor.setOnClickListener {
+            shareURL(urlVendor)
+        }
+
 
         LogoutibBtn.setOnClickListener {
             firebaseAuth.signOut()
@@ -44,36 +91,44 @@ class category : AppCompatActivity() {
         }
 
         OfficialCategory.setOnClickListener {
-            val url =
-                "https://docs.google.com/forms/d/e/1FAIpQLSfRdx856GNoLnL8yoMOqdszFEhZmFM4cbWHorowzWuk5IZPGg/viewform"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(intent)
-        }
-        JobApplication.setOnClickListener {
-            val url =
-                "https://docs.google.com/forms/d/e/1FAIpQLSfI5uohnvJG5OeyhYYaHRt5SxMsQSDWrPl2F0-SrgiaafKtNg/viewform"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(intent)
-        }
-        EventCategory.setOnClickListener {
-            val url =
-                "https://docs.google.com/forms/d/e/1FAIpQLSczGErrq6po4tOf7qkqlTR8H4QNjFasD1MkZAE_yfCNL98xRg/viewform"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(intent)
-        }
-        CostumerCategory.setOnClickListener {
-            val url =
-                "https://docs.google.com/forms/d/e/1FAIpQLSeVQQXAV4kdSwdzoOFWbCGzADXNHn3HbmdPGtuV_oGqplF2GQ/viewform"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(intent)
-        }
-        VendorCategory.setOnClickListener {
-            val url =
-                "https://docs.google.com/forms/d/e/1FAIpQLSf5kMXYbU64hJWDDKxT-Br4G-jzdt4D6_F95xsWvgn-ULXpzg/viewform"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(intent)
+            val url = "https://docs.google.com/forms/d/e/1FAIpQLSfRdx856GNoLnL8yoMOqdszFEhZmFM4cbWHorowzWuk5IZPGg/viewform" +
+                    "?entry.fieldName1=$userEmail"
+
+            openGoogleForm(url)
         }
 
+        JobApplication.setOnClickListener {
+            val url = "https://docs.google.com/forms/d/e/1FAIpQLSfI5uohnvJG5OeyhYYaHRt5SxMsQSDWrPl2F0-SrgiaafKtNg/viewform" +
+                    "?entry.fieldName1=$userEmail"
+
+            openGoogleForm(url)
+        }
+
+        EventCategory.setOnClickListener {
+            val url = "https://docs.google.com/forms/d/e/1FAIpQLSczGErrq6po4tOf7qkqlTR8H4QNjFasD1MkZAE_yfCNL98xRg/viewform" +
+                    "?entry.fieldName1=$userEmail"
+
+            openGoogleForm(url)
+        }
+
+        CostumerCategory.setOnClickListener {
+            val url = "https://docs.google.com/forms/d/e/1FAIpQLSeVQQXAV4kdSwdzoOFWbCGzADXNHn3HbmdPGtuV_oGqplF2GQ/viewform" +
+                    "?entry.fieldName1=$userEmail"
+
+            openGoogleForm(url)
+        }
+
+        VendorCategory.setOnClickListener {
+            val url = "https://docs.google.com/forms/d/e/1FAIpQLSf5kMXYbU64hJWDDKxT-Br4G-jzdt4D6_F95xsWvgn-ULXpzg/viewform" +
+                    "?entry.fieldName1=$userEmail"
+
+            openGoogleForm(url)
+        }
+    }
+
+    private fun openGoogleForm(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 
     private fun saveLoginStatus(isLoggedIn: Boolean) {
@@ -81,4 +136,12 @@ class category : AppCompatActivity() {
         editor.putBoolean("is_logged_in", isLoggedIn)
         editor.apply()
     }
+
+    private fun shareURL(url: String) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, url)
+        startActivity(Intent.createChooser(intent, "Share URL"))
+    }
+
 }

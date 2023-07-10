@@ -72,16 +72,33 @@
                             android:scaleType="centerCrop" />
 
                     <TextView
+                        android:id="@+id/empContactForm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Formal Survey Form"
+                        android:text="Employee Contact Form"
                         android:textColor="@color/Lite_Secondary_Shrine_Pink_100"
                         android:textStyle="bold|normal"
                         android:layout_below="@id/officialbgiv"
                         android:padding="10dp"
                         android:layout_marginStart="10dp"
-
                         android:textSize="18sp"/>
+
+                        <Button
+                            android:id="@+id/btnsharelinkofficial"
+                            android:textFontWeight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Share Link"
+                            android:layout_alignParentBottom="true"
+                            android:padding="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="@color/Dark_shrine_Pink"
+                            android:textStyle="bold"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"/>
+
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -120,15 +137,32 @@
                         android:scaleType="centerCrop" />
 
                     <TextView
+                        android:id="@+id/jobapp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Job Application Survey Form"
+                        android:text="Job Application Form"
                         android:textColor="@color/Lite_Secondary_Shrine_Pink_100"
                         android:textStyle="bold|normal"
                         android:layout_below="@id/jobbgiv"
                         android:padding="10dp"
                         android:layout_marginStart="10dp"
                         android:textSize="18sp"/>
+
+                    <Button
+                        android:id="@+id/btnsharelinkjob"
+                        android:textFontWeight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share Link"
+                        android:layout_alignParentBottom="true"
+                        android:padding="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/Dark_shrine_Pink"
+                        android:textStyle="bold"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"/>
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -177,6 +211,22 @@
                         android:layout_marginStart="10dp"
                         android:textSize="18sp"/>
 
+                    <Button
+                        android:id="@+id/btnsharelinkevent"
+                        android:textFontWeight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share Link"
+                        android:layout_alignParentBottom="true"
+                        android:padding="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/Dark_shrine_Pink"
+                        android:textStyle="bold"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"/>
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -224,6 +274,22 @@
                         android:layout_marginStart="10dp"
                         android:textSize="18sp"/>
 
+                    <Button
+                        android:id="@+id/btnsharelinkcostumer"
+                        android:textFontWeight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share Link"
+                        android:layout_alignParentBottom="true"
+                        android:padding="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/Dark_shrine_Pink"
+                        android:textStyle="bold"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"/>
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -270,6 +336,22 @@
                         android:padding="10dp"
                         android:layout_marginStart="10dp"
                         android:textSize="18sp"/>
+
+                    <Button
+                        android:id="@+id/btnsharelinkvendor"
+                        android:textFontWeight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share Link"
+                        android:layout_alignParentBottom="true"
+                        android:padding="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/Dark_shrine_Pink"
+                        android:textStyle="bold"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"/>
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
