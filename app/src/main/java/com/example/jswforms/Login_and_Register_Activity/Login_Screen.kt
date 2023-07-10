@@ -4,15 +4,18 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.jswforms.Forgot_Password.Forgot_Password
 import com.example.jswforms.Homepage.category
 import com.example.jswforms.MainActivity.MainActivity
 import com.example.jswforms.R
@@ -36,6 +39,7 @@ class Login_Screen : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     var passwordVisible: Boolean = false
     private val IS_LOGGED_IN = "is_logged_in"
+    private lateinit var TvLoginForgotpassword : TextView
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +52,7 @@ class Login_Screen : AppCompatActivity() {
         password = findViewById(R.id.EtPassword)
         LoginWithGoogle = findViewById(R.id.LoginWithGoogle)
         sharedPreferences = getSharedPreferences("login_prefs", MODE_PRIVATE)
+        TvLoginForgotpassword = findViewById(R.id.TvLoginForgotpassword)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -63,6 +68,11 @@ class Login_Screen : AppCompatActivity() {
 
         LoginWithGoogle.setOnClickListener {
             signInGoogle()
+        }
+
+        TvLoginForgotpassword.setOnClickListener {
+            val intent = Intent(this@Login_Screen,Forgot_Password::class.java)
+            startActivity(intent)
         }
 
         binding.btnLogin.setOnClickListener {

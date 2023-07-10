@@ -99,7 +99,7 @@
     android:id="@+id/TvLoginForgotpassword"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Forgot password?"
+    android:text="Forget password?"
     android:textSize="12sp"
     android:textColor="@color/Dark_shrine_Pink"
     android:layout_below="@id/btnLogin"

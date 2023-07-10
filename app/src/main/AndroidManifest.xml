@@ -16,6 +16,9 @@
         android:theme="@style/colorPrimary"
         tools:targetApi="31">
         <activity
+            android:name=".Forgot_Password.Forgot_Password"
+            android:exported="false" />
+        <activity
             android:name=".Homepage.category"
             android:exported="false" />
         <activity
